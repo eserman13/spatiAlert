@@ -24,7 +24,7 @@
 # the path you set ??? read the error message, it's meant to help you fix it
 # in one try.
 
-dir <- "C:/Users/eserman/Box/BoxPHI-PHMR Projects/Emily/spatialert"
+dir <- "C:/Users/yourname/path/to/folder/containing/spatialert_package"
 
 # ============================================================
 # Do not edit below this line
