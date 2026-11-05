@@ -1,10 +1,6 @@
-# spatiAlert
+# <img src="spatialert/inst/app/www/spatialert_icon.png" height="32" align="absmiddle" alt="" /> spatiAlert
 
 ---
-
-<p align="center">
-  <img src="spatiAlert/inst/app/www/spatialert_logo.png" height="139" alt="spatiAlert logo" />
-</p>
 
 **spatiAlert** is an R Shiny app that provides a point-and-click interface for
 spatial hotspot analysis of public health data. It is designed for public health
@@ -122,9 +118,9 @@ Console (or press **Esc**).
 
 - An internet connection is needed the first time you load a US Census
   geography — the app downloads the boundary files automatically and caches
-them for offline use afterwards.
+  them for offline use afterwards.
 - The background map on the on-screen maps (Esri) also needs a connection; if
-you are offline the maps still show your data on a blank background.
+  you are offline the maps still show your data on a blank background.
 - The printable maps on the **Explore** tab (Word, PDF, PNG) do not use any
   map tiles, so they work offline.
 
