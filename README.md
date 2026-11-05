@@ -1,4 +1,4 @@
-# spatiAlert <img src="inst/app/www/spatialert_logo.png" align="right" height="139" hspace="20" alt="spatiAlert logo" />
+# spatiAlert <img src="spatialert/inst/app/www/spatialert_logo.png" align="right" height="139" hspace="20" alt="spatiAlert logo" />
 
 **spatiAlert** is an R Shiny app that provides a point-and-click interface for
 spatial hotspot analysis of public health data. It is designed for public health
@@ -18,10 +18,10 @@ running) — this README only covers setup and launch.
 
 | Tab | What it does |
 |---|---|
-| **Data & Geography** | Upload your data (school/facility-level or pre-aggregated), choose what to analyze, and load a US Census geography or your own boundary file (shapefile, zip, or GeoJSON — for example school districts). |
-| **Explore** | Map and summarize your data *before* any analysis: school locations, or areas colored by average vaccination rate, number of undervaccinated students, and more. Choose how the color classes are grouped, click rows in the ranked table to isolate areas on the map, and export printable maps (Word, PDF, or PNG). |
-| **Analysis** | Choose spatial weights and run the Getis-Ord Gi\* hotspot analysis, or switch on **Use defaults** to use the published settings. A Global G test reports whether high values cluster across the whole study area. |
-| **Results & Export** | Map and ranked table of significant areas, a **Schools of concern** list (individual schools in areas of concern below a vaccination threshold you choose), a CSV download, a Word report with plain-language explanations, and ready-made methods text. |
+| **Data & Geography** | Upload your data (school/facility-level or pre-aggregated), choose what to analyze, and load a US Census geography or your own boundary file (shapefile, zip, or GeoJSON). |
+| **Explore** | Map and summarize your data *before* any analysis: school locations, or areas colored by average vaccination rate, number of undervaccinated students, and more. Choose how the colors are scaled and which variables to display. |
+| **Analysis** | Choose spatial weights and run the Getis-Ord Gi\* hotspot analysis, or switch on **Use defaults** to use the published settings. A Global G test reports whether high values cluster overall. |
+| **Results & Export** | Map and ranked table of significant areas, a **Schools of concern** list (individual schools in areas of concern below a vaccination threshold you choose), a CSV download, and manuscript-ready methods text. |
 | **FAQ** | Plain-language answers about hotspots, z-scores, p-values, and how to read the results. |
 
 ---
@@ -116,9 +116,9 @@ Console (or press **Esc**).
 
 - An internet connection is needed the first time you load a US Census
   geography — the app downloads the boundary files automatically and caches
-  them for offline use afterwards.
+them for offline use afterwards.
 - The background map on the on-screen maps (Esri) also needs a connection; if
-  you are offline the maps still show your data on a blank background.
+you are offline the maps still show your data on a blank background.
 - The printable maps on the **Explore** tab (Word, PDF, PNG) do not use any
   map tiles, so they work offline.
 
@@ -133,8 +133,8 @@ converts these to UTF-8 automatically when the file is loaded.
 ## Getting help
 
 - **In-app help**: Once the app is running, see the **Start Here** and **About**
-  tabs, and **spatiAlert_Getting_Started.pdf**, for data requirements, geography
-  and weights choices, and troubleshooting.
+tabs, and **spatiAlert_Getting_Started.pdf**, for data requirements, geography
+and weights choices, and troubleshooting.
 - **Bug reports**: [GitHub Issues](https://github.com/DMA-PRIME/spatiAlert/issues)
 - **Contact**: Emily Serman, Ph.D. — eserman@clemson.edu
 
