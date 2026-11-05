@@ -1,4 +1,29 @@
 
+# ── First-run setup: install any R packages the app needs ─────────────────────
+# Beginners don't need to install anything by hand. The first time the app is
+# launched on a computer, any missing packages are downloaded automatically
+# (this can take several minutes; later launches skip this and start quickly).
+needed_packages <- c(
+  "shiny", "bslib", "leaflet", "sf", "dplyr", "DT", "shinyjs", "waiter",
+  "spdep", "tigris", "readr", "readxl", "ggplot2", "officer", "flextable",
+  "glue", "scales", "htmltools", "markdown", "classInt"
+)
+missing_packages <- needed_packages[!vapply(needed_packages, requireNamespace,
+                                            logical(1), quietly = TRUE)]
+if (length(missing_packages) > 0) {
+  message("spatiAlert: installing ", length(missing_packages),
+          " missing R package(s): ", paste(missing_packages, collapse = ", "),
+          "\nThis only happens the first time and can take several minutes...")
+  install.packages(missing_packages, repos = "https://cloud.r-project.org")
+  still_missing <- missing_packages[!vapply(missing_packages, requireNamespace,
+                                            logical(1), quietly = TRUE)]
+  if (length(still_missing) > 0) {
+    stop("These R packages could not be installed: ",
+         paste(still_missing, collapse = ", "),
+         ". Check your internet connection and try again.", call. = FALSE)
+  }
+}
+
 library(shiny)
 library(bslib)
 library(leaflet)
@@ -13,7 +38,7 @@ options(shiny.maxRequestSize = 50 * 1024^2)
 
 # app_dir / pkg_dir are resolved automatically — no manual editing needed.
 # Shiny sets the working directory to this file's location when it runs the app,
-# so app_dir is just "here", and pkg_dir is two levels up (inst/app -> inst -> package root).
+# so app_dir is just "here", and pkg_dir is two levels up (inst/app -> inst -> the spatiAlert folder).
 app_dir <- getwd()
 pkg_dir <- normalizePath(file.path(app_dir, "..", ".."))
 
@@ -86,6 +111,7 @@ keep_scroll_js <- "
 ui <- page_navbar(
   id = "navbar",
   header = tags$head(
+    tags$link(rel = "icon", type = "image/png", href = "spatialert_icon.png"),
     tags$script(HTML(keep_scroll_js)),
     tags$style(HTML("
       .card-header .nav-tabs .nav-link,
@@ -104,6 +130,8 @@ ui <- page_navbar(
     "))
   ),
   title = tags$span(
+    tags$img(src = "spatialert_icon.png", alt = "spatiAlert logo",
+             style = "height: 38px; width: auto; margin-right: 10px; vertical-align: middle;"),
     tags$span("spati", style = "font-weight: 400;"),
     tags$span("Alert", style = "font-weight: 700; color: #F56600;")
   ),

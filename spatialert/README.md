@@ -1,6 +1,6 @@
-# spatiAlert <img src="man/figures/logo.png" align="right" height="139" alt="" />
+# spatiAlert <img src="inst/app/www/spatialert_logo.png" align="right" height="139" hspace="20" alt="spatiAlert logo" />
 
-**spatiAlert** is an R package that provides a point-and-click interface for
+**spatiAlert** is an R Shiny app that provides a point-and-click interface for
 spatial hotspot analysis of public health data. It is designed for public health
 practitioners who want to identify geographic clusters of outcomes like
 vaccination coverage, disease incidence, or screening rates — without needing
@@ -12,7 +12,7 @@ to an external server.
 For a full walkthrough of data setup, geography/weights choices, and how to
 interpret results, see **spatiAlert_Getting_Started.pdf** (included with the
 app, and openable from the **Start Here** and **About** tabs once the app is
-running) — this README only covers installation and launch.
+running) — this README only covers setup and launch.
 
 ## What's in the app
 
@@ -30,13 +30,13 @@ running) — this README only covers installation and launch.
 
 ```
 spatiAlert/
-├── DESCRIPTION                  Package metadata and dependencies
+├── DESCRIPTION                  Project metadata and list of required R packages
 ├── LICENSE                      MIT license
 ├── README.md                    This file
 ├── .gitignore                   Files Git should ignore
-├── R/                           Package code (also usable in your own scripts)
-│   ├── app.R                    hotspot_app() — launches the Shiny app
-│   ├── spatialert.R             Package-level documentation
+├── R/                           Analysis code used by the app (also usable in your own scripts)
+│   ├── app.R                    Optional helper for launching the app from R
+│   ├── spatialert.R             Project overview and documentation
 │   ├── geography.R              Loading Census geographies, joining data to areas
 │   ├── analysis.R               Spatial weights, Gi*, Global G test, hotspot classes
 │   └── report.R                 Word report generation
@@ -50,13 +50,18 @@ spatiAlert/
 │       │   ├── mod_analysis.R       Analysis settings, running the analysis
 │       │   └── mod_results.R        Results tables, schools of concern, report, FAQ
 │       └── www/                 Files shown inside the app
+│           ├── spatialert_logo.png  Logo shown in the app and README
+│           ├── spatialert_icon.png  Small logo for the app's top bar
 │           ├── start_here.md        "Start Here" tab text
 │           └── help.md              "About" tab text (including the citation)
 ```
 
 ---
 
-## Installation
+## Setup
+
+spatiAlert is a Shiny app. Download the app's files, open the run file, and start
+your analysis. No coding or package installation needed.
 
 ### Step 1 — Install R
 
@@ -74,39 +79,38 @@ Desktop version from [https://posit.co/download/rstudio-desktop](https://posit.c
 
 Run the installer and accept the defaults.
 
-### Step 3 — Install spatiAlert
+### Step 3 — Download spatiAlert
 
-Open RStudio. In the **Console** panel (bottom left), paste these two lines and
-press Enter:
-
-```r
-install.packages("remotes")
-remotes::install_github("DMA-PRIME/spatiAlert")
-```
-
-This will install spatiAlert and all of its dependencies. It may take a few
-minutes the first time — this is normal.
+On the [GitHub page](https://github.com/DMA-PRIME/spatiAlert), click the green
+**Code** button → **Download ZIP**, then unzip it somewhere you can find it
+(for example, your Documents folder).
 
 ### Step 4 — Launch the app
 
-There are two ways to launch spatiAlert, depending on how you got it.
+Use whichever of these matches how you got the app.
 
-**If you installed the package from GitHub (Step 3)**, run this in the RStudio
-Console:
-
-```r
-library(spatialert)
-hotspot_app()
-```
-
-**If you downloaded the app as a zip file**, unzip it, open
+**Option A — the zip file with the launcher script.** Open
 `run_spatialert - user.R` in RStudio, set the `dir` variable near the top to the
 folder that directly contains `spatialert_package`, and click **Source**. See
 Section 1 of **spatiAlert_Getting_Started.pdf** for a worked example.
 
-The spatiAlert interface will open in your web browser. You can close it at any
-time by closing the browser tab and pressing **Ctrl+C** (Windows/Linux) or
-**Cmd+C** (Mac) in the RStudio Console.
+**Option B — the ZIP downloaded from GitHub.** In the RStudio Console, run the
+following, replacing the path with the location of the unzipped folder (use
+forward slashes, even on Windows):
+
+```r
+shiny::runApp("C:/Users/yourname/Documents/spatiAlert-main/inst/app")
+```
+
+**The first time you launch**, spatiAlert automatically installs the R packages it
+needs. This can take several minutes and prints progress in the RStudio Console;
+just let it finish. If R asks whether to install a package "from source", answer **No**. After that, launching is quick.
+
+The spatiAlert interface opens in a small window inside RStudio. For the best
+experience, click **Open in Browser** at the top of that window to use it in your
+usual web browser (Chrome, Edge, Safari, etc.). To close the app, close the
+window or browser tab and then click the red **Stop** button in the RStudio
+Console (or press **Esc**).
 
 ### Internet connection
 
@@ -138,5 +142,5 @@ converts these to UTF-8 automatically when the file is loaded.
 
 If you use spatiAlert in a publication or report, please cite:
 
-> Serman, E.A., Witrick, B., & Rennert, L. (2026). spatialert: Interactive Spatial
-> Hotspot Analysis for Public Health. R package version 0.1.0. https://github.com/DMA-PRIME/spatiAlert
+> Serman, E.A., Witrick, B., & Rennert, L. (2026). spatiAlert: Interactive Spatial
+> Hotspot Analysis for Public Health [R Shiny application]. https://github.com/DMA-PRIME/spatiAlert

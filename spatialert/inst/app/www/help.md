@@ -12,7 +12,7 @@ download, or the **Start Here** tab for a quick overview.
 
 | | |
 |---|---|
-| **App** | spatiAlert |
+| **App** | spatiAlert (R Shiny application) |
 | **Version** | 0.1.0 |
 | **Method** | Getis-Ord Gi* hotspot analysis |
 | **Data privacy** | All analysis runs locally on your machine — nothing is uploaded to any server |
@@ -23,8 +23,8 @@ download, or the **Start Here** tab for a quick overview.
 If you use spatiAlert in a publication or report, please cite both the app
 and the analysis it accompanies:
 
-> **App:** Serman, E.A., Witrick, B., & Rennert, L. (2026). spatialert: Interactive
-> Spatial Hotspot Analysis for Public Health. R package. https://github.com/DMA-PRIME/spatiAlert
+> **App:** Serman, E.A., Witrick, B., & Rennert, L. (2026). spatiAlert: Interactive
+> Spatial Hotspot Analysis for Public Health [R Shiny application]. https://github.com/DMA-PRIME/spatiAlert
 
 > **Published analysis:** Clusters of Concern — Spatial Link between Childhood
 > Undervaccination and Measles Outbreaks in South Carolina. Published May 20, 2026.
