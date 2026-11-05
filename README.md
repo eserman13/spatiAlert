@@ -1,4 +1,10 @@
-# spatiAlert <img src="spatialert/inst/app/www/spatialert_logo.png" align="right" height="139" hspace="20" alt="spatiAlert logo" />
+# spatiAlert
+
+---
+
+<p align="center">
+  <img src="spatiAlert/inst/app/www/spatialert_logo.png" height="139" alt="spatiAlert logo" />
+</p>
 
 **spatiAlert** is an R Shiny app that provides a point-and-click interface for
 spatial hotspot analysis of public health data. It is designed for public health
